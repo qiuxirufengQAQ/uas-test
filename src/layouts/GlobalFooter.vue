@@ -1,7 +1,11 @@
+
+// 版权展示，uas系统不需要
 <template>
   <div class="footer">
     <div class="copyright">
-      Copyright<a-icon type="copyright" />{{copyright}}
+      Copyright
+      <a-icon type="copyright" />
+      {{copyright}}
     </div>
   </div>
 </template>

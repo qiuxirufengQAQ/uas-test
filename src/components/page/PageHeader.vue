@@ -1,35 +1,30 @@
 <template>
   <div class="page-header">
     <div :class="['page-header-wide', layout]">
-      <div class="breadcrumb">
-        <a-breadcrumb>
-          <a-breadcrumb-item :key="item.path" v-for="(item, index) in breadcrumb">
-            <span v-if="index === 0"><a style="text-decoration: none" href="#/index/dashboard">{{item.name}}</a></span>
-            <span v-else-if="index !=1 && index <= breadcrumb.length-2">
-              <a style="text-decoration: none" :href="'#'+item.path">{{item.name}}</a>
-            </span>
-            <span v-else>{{item.name}}</span>
-          </a-breadcrumb-item>
-        </a-breadcrumb>
-      </div>
       <div class="detail">
-        <div v-if="avatar" class="avatar"><a-avatar :src="avatar" /></div>
         <div class="main">
           <a-row>
+            <!-- 标题 -->
             <a-col :xs="24" :md="12">
-              <img v-if="logo" :src="logo" class="logo" />
               <h1 v-if="title" class="title">{{title}}</h1>
             </a-col>
+            <!-- 动作 -->
             <a-col :xs="24" :md="12">
-              <div class="action"><slot name="action"></slot></div>
+              <div class="action">
+                <slot name="action"></slot>
+              </div>
             </a-col>
           </a-row>
           <div class="row">
             <a-col :xs="24" :md="12">
-              <div v-if="this.$slots.content" class="content"><slot name="content"></slot></div>
+              <div v-if="this.$slots.content" class="content">
+                <slot name="content"></slot>
+              </div>
             </a-col>
             <a-col :xs="24" :md="12">
-              <div v-if="this.$slots.extra" class="extra"><slot name="extra"></slot></div>
+              <div v-if="this.$slots.extra" class="extra">
+                <slot name="extra"></slot>
+              </div>
             </a-col>
           </div>
         </div>
@@ -42,6 +37,7 @@
 export default {
   name: "PageHeader",
   props: {
+    // 用于展示页的标题
     title: {
       type: String,
       required: false
@@ -51,10 +47,6 @@ export default {
       required: false
     },
     logo: {
-      type: String,
-      required: false
-    },
-    avatar: {
       type: String,
       required: false
     }
@@ -77,26 +69,11 @@ export default {
       margin: auto;
       max-width: 1400px;
     }
-    &.side {
-    }
-    .breadcrumb {
-      margin-bottom: 16px;
-    }
     .detail {
       display: flex;
       .row {
         display: flex;
         width: 100%;
-      }
-      .avatar {
-        flex: 0 1 72px;
-        margin: 0 24px 8px 0;
-        & > span {
-          border-radius: 72px;
-          display: block;
-          width: 72px;
-          height: 72px;
-        }
       }
       .main {
         width: 100%;

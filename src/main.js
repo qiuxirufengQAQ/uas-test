@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import { sync } from "vuex-router-sync";
 import axios from "axios";
+import Router from "vue-router";
 import "ant-design-vue/dist/antd.css";
 import {
   Button,
@@ -50,6 +51,12 @@ Vue.prototype.$message = message;
 Vue.prototype.$unsync = sync(store, router);
 Vue.prototype.$eventBus = new Vue(); //注册全局事件对象
 Vue.prototype.$confirm = Modal.confirm;
+
+// 处理NavigationDuplicated问题
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
 //权限判断指令
 Vue.prototype.$secured = value => {

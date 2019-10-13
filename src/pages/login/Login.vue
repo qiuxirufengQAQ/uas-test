@@ -87,7 +87,7 @@ export default {
             callback: resp => {
               this.logging = false;
               if (resp.success) {
-                this.$router.push("/index/dashboard");
+                this.$router.push("/auth/userManage");
               } else {
                 this.error = resp.respMsg;
               }
@@ -100,7 +100,7 @@ export default {
   beforeCreate() {
     const currUser = this.$store.state.app.currUser;
     if (currUser && currUser.id) {
-      this.$router.push("/index/dashboard");
+      this.$router.push("/auth/userManage");
     }
   }
 };

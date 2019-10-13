@@ -10,7 +10,8 @@
       :hide-add="true"
       type="editable-card"
       @change="changePage"
-      @edit="editPage">
+      @edit="editPage"
+    >
       <a-tab-pane :id="page.fullPath" :key="page.fullPath" v-for="page in pageList">
         <span slot="tab" :pagekey="page.fullPath">{{page.name}}</span>
       </a-tab-pane>

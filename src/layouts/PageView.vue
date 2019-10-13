@@ -1,15 +1,5 @@
 <template>
-  <page-layout :desc="desc" :title="title" :linkList="linkList">
-    <div slot="extra" class="extraImg">
-      <img :src="extraImage" />
-    </div>
-    <transition name="page-toggle" mode="out-in">
-      <keep-alive v-if="multipage">
-        <router-view ref="page" />
-      </keep-alive>
-      <router-view ref="page" v-else />
-    </transition>
-  </page-layout>
+  <router-view ref="page" />
 </template>
 
 <script>

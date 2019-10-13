@@ -1,7 +1,7 @@
 <template>
   <a-layout-sider :class="[theme, 'sider', isMobile ? null : 'shadow']" width="256px" :collapsible="collapsible" v-model="collapsed" :trigger="null">
     <div :class="['logo', theme]">
-      <router-link to="/index/dashboard">
+      <router-link to="/auth/userManage">
         <h1>{{systemName}}</h1>
       </router-link>
     </div>

@@ -1,5 +1,6 @@
 <template>
   <a-layout>
+    <!-- 选择为手机时展示的关闭导航栏 -->
     <drawer v-if="isMobile" :openDrawer="collapsed" @change="onDrawerChange">
       <sider-menu
         :theme="theme"
